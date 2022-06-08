@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue-dischi</title>
+</head>
+<body>
+     
+   <div id="root">
+       <header>
+           <div class="logo">
+               <img :src="logo" alt="">
+           </div>
+       </header>
+       <main>
+           <select v-model="cerca" name="" id="">
+                <option v-for="(genere) in genereDischi">{{genere}}</option>
+           </select>
+              
+           <div  v-if="selectGen(carta)" v-for="carta  in dischi"  class="cardDisc">
+                  <img :src="carta.poster" alt="">
+                <h3>{{carta.title}}</h3>
+                <h5>{{carta.genre}}</h5>
+                <h4>{{carta.year}}</h4>
+           </div>
+           
+         <h1 :class="(cerca =='')?'visibile':'invisibile'">scegli i tuoi dischi</h1>
+         
+            
+           
+       </main>
+   </div>
+
+
+
+    <script src="main.js"></script>
+</body>
+</html>
